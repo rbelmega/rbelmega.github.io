@@ -1,0 +1,18 @@
+<section *ngIf="!postId">
+	<p *ngFor="#date of dates">
+		<i class="fa fa-list-alt"></i>
+		<span class="date">27 Feb 2016</span>
+		<a [routerLink]="['Blog', {id: 3}]" class="post">post #{{date}}</a>
+	</p>
+</section>
+<section *ngIf="postId">
+	<h2 class="dev-name"><a [routerLink]="['Mainpage']" class="post">Rostyslav Belmeha</a></h2>
+
+	<header>all about English</header>
+	<section class="fake-post"></section>
+	<section class="blog-wrapper">
+		<p class="post-date">Posted on Feb 27, 2016</p>
+		<article [innerHTML]="post">
+		</article>
+	</section>
+</section>

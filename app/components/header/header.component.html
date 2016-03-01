@@ -1,0 +1,17 @@
+<div class="wrapper">
+	<contacts-component [contacts]="contactList" [hovered]="hoveredColor"></contacts-component>
+	<section class="profile-image-wrapper">
+		<div class="test">
+			<div class="fb" [style.background-color]="hoveredColor && hoveredColor.color"
+					[class]="hoveredColor ? 'enter': ''">
+				<span>{{hoveredColor && hoveredColor.letter}}</span>
+			</div>
+		</div>
+		<div class="profile-image" [style.border-color]="hoveredColor && hoveredColor.color"></div>
+	</section>
+	<div class="profile-info">
+		<h3>{{profileInfo}}</h3>
+		<p>Front-end developer at SoftServe</p>
+		<p><i class='fa fa-map-marker'></i>Ivano-Frankivsk, Ukraine</p>
+	</div>
+</div>

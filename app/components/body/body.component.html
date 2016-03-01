@@ -1,0 +1,32 @@
+<div class="wrapper">
+	<div class="twitter">
+		<h2 class="header"><i class="fa fa-twitter"></i>
+			twitter</h2>
+		<a class="twitter-timeline"
+				data-chrome="nofooter noheader noborder noscrollbar transparent"
+				href="https://twitter.com/izzz0"
+				data-widget-id="694262144762822658">Tweets by @izzz0</a>
+		<div id="tweets">{{getScript()}}</div>
+	</div>
+	<div class="bio">
+		<h2 class="header"><i class="fa fa-reddit-alien"></i>about me</h2>
+
+		<section *ngIf="aboutMe">
+			<h3 *ngFor="#info of aboutMe.activities">
+				<i [class]="info.iconClass"></i>
+				{{info.text}}
+			</h3>
+			<p>
+				{{aboutMe.bio}}
+			</p>
+		</section>
+	</div>
+	<div class="blog">
+		<h2 class="header">
+			<i class="fa fa-pencil"></i>
+			blog
+		</h2>
+		<blog-component></blog-component>
+
+	</div>
+</div>

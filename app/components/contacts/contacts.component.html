@@ -1,0 +1,14 @@
+<!--<div class="contact-text" [style.color] = "hovered && hovered.color"-->
+<!--&gt;-->
+	<!--<span>Contacts</span>-->
+<!--</div>-->
+<ul class="contact-list">
+	<li *ngFor="#contact of contacts">
+		<a [href]="contact.link"
+			[style.color] = "contact.color === hovered.color ? hovered.color : ''"
+			(mouseover)="hovered.color = contact.color; hovered.letter = contact.letter"
+			(mouseleave)="hovered.color = '';  hovered.letter = ''" target="_blank">
+			{{contact.name}}
+		</a>
+	</li>
+</ul>
