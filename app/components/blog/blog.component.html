@@ -1,17 +1,19 @@
 <section *ngIf="!postId">
-	<p *ngFor="#date of dates">
+	<p *ngFor="#post of allPosts">
 		<i class="fa fa-list-alt"></i>
-		<span class="date">27 Feb 2016</span>
-		<a [routerLink]="['Blog', {id: 3}]" class="post">post #{{date}}</a>
+		<span class="date">{{post.date}}</span>
+		<a [routerLink]="['Blog', {id: post.id}]" class="post">{{post.name}}</a>
 	</p>
 </section>
+
+
 <section *ngIf="postId">
 	<h2 class="dev-name"><a [routerLink]="['Mainpage']" class="post">Rostyslav Belmeha</a></h2>
 
-	<header>all about English</header>
+	<header>should you be an engineer?</header>
 	<section class="fake-post"></section>
 	<section class="blog-wrapper">
-		<p class="post-date">Posted on Feb 27, 2016</p>
+		<p class="post-date">Posted on Mar 1, 2016</p>
 		<article [innerHTML]="post">
 		</article>
 	</section>

@@ -1,4 +1,6 @@
-System.register(['angular2/core', 'angular2/router', './blog.service'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './blog.service'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -26,12 +28,28 @@ System.register(['angular2/core', 'angular2/router', './blog.service'], function
                 function blogComponent(_service, _routeParams) {
                     this._service = _service;
                     this._routeParams = _routeParams;
-                    this.dates = [1, 2, 3];
                 }
                 blogComponent.prototype.ngOnInit = function () {
                     var _this = this;
+                    marked.setOptions({
+                        renderer: new marked.Renderer(),
+                        gfm: true,
+                        tables: true,
+                        breaks: false,
+                        pedantic: false,
+                        sanitize: true,
+                        smartLists: true,
+                        smartypants: true
+                    });
+                    var that = this;
                     this.postId = this._routeParams.get('id');
-                    this._service.getPost().then(function (post) { return _this.post = markdown.toHTML(post, 'Maruku'); });
+                    if (this.postId) {
+                        this._service.getPosts().subscribe(function (allPosts) {
+                            var file = JSON.parse(allPosts._body).posts[that.postId - 1].file;
+                            that._service.getPost(file).subscribe(function (post) { return that.post = marked(post._body); });
+                        });
+                    }
+                    this._service.getPosts().subscribe(function (allPosts) { return _this.allPosts = JSON.parse(allPosts._body).posts; });
                 };
                 blogComponent = __decorate([
                     core_1.Component({
@@ -46,7 +64,7 @@ System.register(['angular2/core', 'angular2/router', './blog.service'], function
                     __metadata('design:paramtypes', [blog_service_1.BlogService, router_1.RouteParams])
                 ], blogComponent);
                 return blogComponent;
-            })();
+            }());
             exports_1("blogComponent", blogComponent);
         }
     }

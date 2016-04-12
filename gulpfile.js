@@ -7,8 +7,10 @@ var src = [
 	"./node_modules/systemjs/dist/system.src.js",
 	"./node_modules/rxjs/bundles/Rx.js",
 	"./node_modules/angular2/bundles/angular2.dev.js",
-	"./node_modules/markdown/lib/markdown.js",
-	"./node_modules/angular2/bundles/router.dev.js"
+	//"./node_modules/markdown/lib/markdown.js",
+	"./node_modules/marked/lib/marked.js",
+	"./node_modules/angular2/bundles/router.dev.js",
+	"./node_modules/angular2/bundles/http.dev.js"
 ];
 
 gulp.task('default', ["compress"], function() {

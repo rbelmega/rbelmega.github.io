@@ -40,3 +40,37 @@ contacts-component:after {
 	content: " ";
 	clear: both;
 }
+
+
+code {
+	background: #f2f2f2;
+	padding: 12px;
+	border: 1px solid #ccc;
+	display: block;
+	margin: 0;
+	color: #4A4A4A;
+	font-weight: lighter;
+}
+
+strong > em {
+	color: #a30000;
+	background: #f2f2f2;
+	padding: 4px;
+}
+
+.blog-wrapper table {
+	border-collapse: collapse;
+}
+.blog-wrapper td, .blog-wrapper th {
+	border: 1px solid #c3c3c3;
+	padding: 6px 25px;
+}
+.blog-wrapper th {
+	background: #d5d5d5;
+}
+.blog-wrapper ul {
+	margin-top: 0;
+}
+.blog-wrapper table tr:nth-child(even) {
+	background: #f8f8f8;
+}
